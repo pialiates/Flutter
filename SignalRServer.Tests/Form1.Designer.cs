@@ -29,93 +29,91 @@ namespace SignalRServer.Tests
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.nameTB = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.urlTB = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.usernameTB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
+            this.messageBox = new System.Windows.Forms.TextBox();
+            this.senMessageAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // usernameTB
             // 
-            this.button1.Location = new System.Drawing.Point(12, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(272, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Hello";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.usernameTB.Location = new System.Drawing.Point(12, 12);
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.Size = new System.Drawing.Size(271, 23);
+            this.usernameTB.TabIndex = 6;
             // 
-            // button2
+            // passwordTB
             // 
-            this.button2.Location = new System.Drawing.Point(12, 168);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(272, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Send Name";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.passwordTB.Location = new System.Drawing.Point(12, 41);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.Size = new System.Drawing.Size(271, 23);
+            this.passwordTB.TabIndex = 7;
             // 
-            // nameTB
+            // loginButton
             // 
-            this.nameTB.Location = new System.Drawing.Point(13, 136);
-            this.nameTB.Name = "nameTB";
-            this.nameTB.Size = new System.Drawing.Size(271, 23);
-            this.nameTB.TabIndex = 2;
+            this.loginButton.Location = new System.Drawing.Point(11, 70);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(272, 23);
+            this.loginButton.TabIndex = 8;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // label1
+            // createButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "URL :";
+            this.createButton.Location = new System.Drawing.Point(12, 99);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(272, 23);
+            this.createButton.TabIndex = 9;
+            this.createButton.Text = "Create";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click_1);
             // 
-            // urlTB
+            // messageBox
             // 
-            this.urlTB.Location = new System.Drawing.Point(52, 10);
-            this.urlTB.Name = "urlTB";
-            this.urlTB.Size = new System.Drawing.Size(232, 23);
-            this.urlTB.TabIndex = 4;
+            this.messageBox.Location = new System.Drawing.Point(11, 160);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(271, 23);
+            this.messageBox.TabIndex = 10;
             // 
-            // button3
+            // senMessageAll
             // 
-            this.button3.Location = new System.Drawing.Point(12, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(272, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Connect";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.senMessageAll.Location = new System.Drawing.Point(10, 189);
+            this.senMessageAll.Name = "senMessageAll";
+            this.senMessageAll.Size = new System.Drawing.Size(272, 23);
+            this.senMessageAll.TabIndex = 11;
+            this.senMessageAll.Text = "Send All";
+            this.senMessageAll.UseVisualStyleBackColor = true;
+            this.senMessageAll.Click += new System.EventHandler(this.senMessageAll_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 360);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.urlTB);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.nameTB);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(296, 262);
+            this.Controls.Add(this.senMessageAll);
+            this.Controls.Add(this.messageBox);
+            this.Controls.Add(this.createButton);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.usernameTB);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox nameTB;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox urlTB;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox usernameTB;
+        private System.Windows.Forms.TextBox passwordTB;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.TextBox messageBox;
+        private System.Windows.Forms.Button senMessageAll;
     }
 }
 

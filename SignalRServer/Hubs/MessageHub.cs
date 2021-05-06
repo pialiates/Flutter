@@ -9,17 +9,11 @@ using System.Threading.Tasks;
 namespace SignalRServer.Hubs
 {
     [Authorize(Roles = "User")]
-    public class DenemeHub : Hub
+    public class MessageHub : Hub
     {
-        public async Task Hello()
+        public async Task MessageAll(string message)
         {
-            await Clients.All.SendAsync("Hello", "Hello....");
+            await Clients.All.SendAsync("MessageAll", message);
         }
-
-        public async Task Name(String name)
-        {
-            await Clients.All.SendAsync("Name", $"Hello {name}");
-        }
-
     }
 }
