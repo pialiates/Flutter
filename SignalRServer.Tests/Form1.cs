@@ -16,8 +16,12 @@ namespace SignalRServer.Tests
 {
     public partial class Form1 : Form
     {
-        private const String urlLogin = "https://aosignalr.aates.site/login";
-        private const String urlmessage = "https://aosignalr.aates.site/message";
+
+        private const String urlLogin = "https://aosignalr.aliates.com/login";
+        private const String urlmessage = "https://aosignalr.aliates.com/message";
+
+        //private const String urlLogin = "http://aosignalr.aates.site/login";
+        //private const String urlmessage = "http://aosignalr.aates.site/message";
 
         //private const String urlmessage = "http://localhost:5000/message";
         //private const String urlLogin = "http://localhost:5000/login";
@@ -67,7 +71,35 @@ namespace SignalRServer.Tests
                 }
             });
 
+            connectLogin.Closed += ConnectLogin_Closed;
+            connectLogin.Reconnecting += ConnectLogin_Reconnecting;
+            connectLogin.Reconnected += ConnectLogin_Reconnected;
+
             await connectLogin.StartAsync();
+        }
+
+        private Task ConnectLogin_Reconnected(string arg)
+        {
+            return Task.Run(() =>
+            {
+                MessageBox.Show(arg);
+            });
+        }
+
+        private Task ConnectLogin_Reconnecting(Exception arg)
+        {
+            return Task.Run(() =>
+            {
+                MessageBox.Show(arg.Message);
+            });
+        }
+
+        private Task ConnectLogin_Closed(Exception arg)
+        {
+            return Task.Run(() =>
+            {
+                MessageBox.Show(arg.Message);
+            });
         }
 
         private async void MessageConnectionInit(object sender, EventArgs e)
@@ -75,9 +107,8 @@ namespace SignalRServer.Tests
             connectMessage = new HubConnectionBuilder().WithUrl(urlmessage, options =>
             {
                 options.AccessTokenProvider = () => Task.FromResult(this.token.AccessToken);
-            }).WithAutomaticReconnect().Build();
+            }).Build();
 
-            
 
             connectMessage.On<string>("MessageAll", message =>
             {

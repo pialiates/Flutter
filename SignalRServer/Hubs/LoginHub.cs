@@ -27,7 +27,7 @@ namespace SignalRServer.Hubs
                 return;
 
 
-            StaticDatas.Users.Add(new User() { Id = Guid.NewGuid(), Username = userName, Password = password });
+            StaticDatas.Users.Add(new User() { Id = Guid.NewGuid(), Username = userName, Password = "123" });
             
             await Clients.Caller.SendAsync("Create", true);
         }
